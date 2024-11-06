@@ -1,0 +1,29 @@
+.header {
+  background-color: rgba(247, 247, 247, 1);
+}
+.nav {
+  display: flex;
+  align-items: center;
+  height: 72px;
+}
+.logo {
+  margin-right: 450px;
+  transition: all 0.4s ease;
+  padding: 5px;
+}
+.logo:hover {
+  transform: scale(1.05);
+}
+.list {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
+.item {
+  font-weight: 500;
+  color: rgba(16, 24, 40, 1);
+  transition: all 0.4s ease;
+}
+.isActive {
+  color: rgba(216, 67, 67, 1);
+}
