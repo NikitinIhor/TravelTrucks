@@ -1,0 +1,21 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.content p {
+  font-weight: 500;
+  color: rgba(16, 24, 40, 1);
+}
+.list {
+  width: 360px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.icon {
+  margin-bottom: 8px;
+}
