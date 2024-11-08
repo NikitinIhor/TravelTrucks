@@ -7,6 +7,9 @@ const gallerySlice = createSlice({
     galleryArr: [],
     loading: false,
     error: false,
+    page: 1,
+    perPage: 4,
+    totalItems: 23,
   },
 
   extraReducers: (builder) => {
@@ -14,11 +17,13 @@ const gallerySlice = createSlice({
       .addCase(getAllGallery.pending, (state) => {
         state.loading = true;
         state.error = false;
-        state.galleryArr = [];
       })
       .addCase(getAllGallery.fulfilled, (state, action) => {
+        const { total, items } = action.payload;
         state.loading = false;
-        state.galleryArr = action.payload;
+        state.galleryArr = [...state.galleryArr, ...items];
+        state.page += 1;
+        state.totalItems = total;
         state.error = false;
       })
       .addCase(getAllGallery.rejected, (state) => {
@@ -30,6 +35,7 @@ const gallerySlice = createSlice({
 });
 
 export const selectGallery = (state) => state.gallery.galleryArr;
+export const selectTotalItems = (state) => state.gallery.totalItems;
 export const selectLoading = (state) => state.gallery.loading;
 export const selectError = (state) => state.gallery.error;
 
