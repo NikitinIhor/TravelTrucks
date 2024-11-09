@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-
+import Gallery from "react-image-gallery";
+import "react-image-gallery/styles/css/image-gallery.css";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Outlet, useParams } from "react-router-dom";
 import Error from "../../components/Error/Error";
@@ -50,6 +51,12 @@ export default function CatalogItem() {
         reviewsTotal
       : 0;
 
+  const imageGallery = gallery.map((image) => ({
+    original: image.original,
+    thumbnail: image.thumbnail || image.original,
+    description: image.description || "",
+  }));
+
   return (
     <div className="container">
       <div className={css.catalogItem}>
@@ -76,13 +83,9 @@ export default function CatalogItem() {
           </div>
           <p className={css.p}>€{price}.00</p>
         </div>
-        <ul className={css.images}>
-          {gallery.map((image, index) => (
-            <li key={index} className={css.image}>
-              <img src={image.original} alt={`image: ${index + 1}`} />
-            </li>
-          ))}
-        </ul>
+
+        {gallery.length > 0 && <Gallery items={imageGallery} />}
+
         <p className={css.description}>{description}</p>
       </div>
       <ul className={css.links}>
