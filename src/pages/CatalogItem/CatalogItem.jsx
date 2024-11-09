@@ -22,6 +22,9 @@ export default function CatalogItem() {
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
 
+  const isActive = ({ isActive }) =>
+    isActive ? `${css.isActive} ${css.link}` : css.link;
+
   useEffect(() => {
     dispatch(getCamperById(newId));
   }, [dispatch, newId]);
@@ -35,9 +38,6 @@ export default function CatalogItem() {
       setIsOpen(true);
     }
   };
-
-  const isActive = ({ isActive }) =>
-    isActive ? `${css.isActive} ${css.link}` : css.link;
 
   if (loading) {
     return <Loader />;
