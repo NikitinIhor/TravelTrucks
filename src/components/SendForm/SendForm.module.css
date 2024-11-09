@@ -1,0 +1,16 @@
+.sendForm {
+  width: 640px;
+  border-radius: 10px;
+  border: 1px solid rgba(218, 221, 225, 1);
+  padding: 44px 57px;
+}
+.title {
+  font-weight: 600;
+  font-size: 20px;
+  color: rgba(16, 24, 40, 1);
+  margin-bottom: 8px;
+}
+.text {
+  color: rgba(108, 113, 123, 1);
+  margin-bottom: 24px;
+}

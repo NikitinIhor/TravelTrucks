@@ -1,0 +1,27 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+.more {
+  padding: 16px 32px;
+  font-weight: 500;
+  color: rgba(16, 24, 40, 1);
+  border-radius: 200px;
+  border: 1px solid rgba(218, 221, 225, 1);
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 52px;
+  transition: all 0.4s ease;
+}
+.more:hover,
+.more:focus {
+  border: 1px solid rgba(216, 67, 67, 1);
+}
+.noCampers {
+  margin: 0 auto;
+  padding-top: 40px;
+  font-size: 24px;
+  color: rgba(216, 67, 67, 1);
+}

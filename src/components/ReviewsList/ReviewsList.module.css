@@ -1,0 +1,41 @@
+.icon_star_empty {
+  fill: rgba(242, 244, 247, 1);
+}
+.icon_star_fill {
+  fill: rgba(255, 197, 49, 1);
+}
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+.item {
+  width: 630px;
+}
+.info {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 60px;
+  background-color: rgba(242, 244, 247, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 24px;
+  color: rgba(228, 72, 72, 1);
+}
+.content p {
+  margin-bottom: 4px;
+  font-weight: 500;
+  color: rgba(16, 24, 40, 1);
+}
+.rating {
+  display: flex;
+  gap: 4px;
+}
