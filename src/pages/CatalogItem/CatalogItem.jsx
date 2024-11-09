@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Outlet, useParams } from "react-router-dom";
 import Error from "../../components/Error/Error";
@@ -12,25 +12,12 @@ import {
 } from "../../redux/gallerySlice";
 import css from "./CatalogItem.module.css";
 
-import Lightbox from "react-image-lightbox";
-import "react-image-lightbox/style.css";
-
 export default function CatalogItem() {
   const dispatch = useDispatch();
   const camper = useSelector(selectCamper);
   const { id } = useParams();
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
-
-  const [photoIndex, setPhotoIndex] = useState(0);
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleImageClick = (index) => {
-    if (!isOpen) {
-      setPhotoIndex(index);
-      setIsOpen(true);
-    }
-  };
 
   const newId = id.replace(":", "");
 
@@ -95,11 +82,7 @@ export default function CatalogItem() {
         <ul className={css.images}>
           {gallery.map((image, index) => (
             <li key={index} className={css.image}>
-              <img
-                src={image.original}
-                alt={`image: ${index + 1}`}
-                onClick={() => handleImageClick(index)}
-              />
+              <img src={image.original} alt={`image: ${index + 1}`} />
             </li>
           ))}
         </ul>
@@ -118,22 +101,6 @@ export default function CatalogItem() {
         </li>
       </ul>
       <Outlet />
-      {isOpen && (
-        <Lightbox
-          mainSrc={gallery[photoIndex].original}
-          nextSrc={gallery[(photoIndex + 1) % gallery.length].original}
-          prevSrc={
-            gallery[(photoIndex + gallery.length - 1) % gallery.length].original
-          }
-          onCloseRequest={() => setIsOpen(false)}
-          onMovePrevRequest={() =>
-            setPhotoIndex((photoIndex + gallery.length - 1) % gallery.length)
-          }
-          onMoveNextRequest={() =>
-            setPhotoIndex((photoIndex + 1) % gallery.length)
-          }
-        />
-      )}
     </div>
   );
 }
