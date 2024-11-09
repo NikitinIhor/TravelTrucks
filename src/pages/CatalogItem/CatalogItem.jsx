@@ -1,4 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import Lightbox from "react-image-lightbox";
+import "react-image-lightbox/style.css";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Outlet, useParams } from "react-router-dom";
 import Error from "../../components/Error/Error";
@@ -20,6 +22,16 @@ export default function CatalogItem() {
   const error = useSelector(selectError);
 
   const newId = id.replace(":", "");
+
+  const [photoIndex, setPhotoIndex] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleImageClick = (index) => {
+    if (!isOpen) {
+      setPhotoIndex(index);
+      setIsOpen(true);
+    }
+  };
 
   const isActive = ({ isActive }) =>
     isActive ? `${css.isActive} ${css.link}` : css.link;
@@ -82,7 +94,11 @@ export default function CatalogItem() {
         <ul className={css.images}>
           {gallery.map((image, index) => (
             <li key={index} className={css.image}>
-              <img src={image.original} alt={`image: ${index + 1}`} />
+              <img
+                src={image.original}
+                alt={`image: ${index + 1}`}
+                onClick={() => handleImageClick(index)}
+              />
             </li>
           ))}
         </ul>
@@ -101,6 +117,22 @@ export default function CatalogItem() {
         </li>
       </ul>
       <Outlet />
+      {isOpen && (
+        <Lightbox
+          mainSrc={gallery[photoIndex].original}
+          nextSrc={gallery[(photoIndex + 1) % gallery.length].original}
+          prevSrc={
+            gallery[(photoIndex + gallery.length - 1) % gallery.length].original
+          }
+          onCloseRequest={() => setIsOpen(false)}
+          onMovePrevRequest={() =>
+            setPhotoIndex((photoIndex + gallery.length - 1) % gallery.length)
+          }
+          onMoveNextRequest={() =>
+            setPhotoIndex((photoIndex + 1) % gallery.length)
+          }
+        />
+      )}
     </div>
   );
 }
