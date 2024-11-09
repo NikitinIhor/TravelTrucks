@@ -1,4 +1,4 @@
-window.global ||= window;
+// window.global ||= window;
 import "modern-normalize";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
