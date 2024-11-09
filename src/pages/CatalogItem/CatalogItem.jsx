@@ -41,9 +41,7 @@ export default function CatalogItem() {
 
   if (loading) return <Loader />;
 
-  if (error) {
-    return <Error />;
-  }
+  if (error) return <Error />;
 
   const {
     name,
