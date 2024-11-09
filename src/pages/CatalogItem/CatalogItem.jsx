@@ -16,12 +16,15 @@ import css from "./CatalogItem.module.css";
 
 export default function CatalogItem() {
   const dispatch = useDispatch();
-  const camper = useSelector(selectCamper);
   const { id } = useParams();
+  const newId = id.replace(":", "");
+  const camper = useSelector(selectCamper);
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
 
-  const newId = id.replace(":", "");
+  useEffect(() => {
+    dispatch(getCamperById(newId));
+  }, [dispatch, newId]);
 
   const [photoIndex, setPhotoIndex] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
@@ -35,10 +38,6 @@ export default function CatalogItem() {
 
   const isActive = ({ isActive }) =>
     isActive ? `${css.isActive} ${css.link}` : css.link;
-
-  useEffect(() => {
-    dispatch(getCamperById(newId));
-  }, [dispatch, newId]);
 
   if (loading) {
     return <Loader />;
