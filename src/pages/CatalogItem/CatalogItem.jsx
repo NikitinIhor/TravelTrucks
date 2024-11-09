@@ -39,9 +39,8 @@ export default function CatalogItem() {
     }
   };
 
-  if (loading) {
-    return <Loader />;
-  }
+  if (loading) return <Loader />;
+
   if (error) {
     return <Error />;
   }
