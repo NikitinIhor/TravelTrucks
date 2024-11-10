@@ -1,5 +1,5 @@
 .filterWrapper {
-  padding: 18px;
+  padding: 10px;
   border: 1px solid rgba(218, 221, 225, 1);
   transition: all 0.4s ease;
   border-radius: 12px;
@@ -11,4 +11,10 @@
 }
 .filterWrapper:focus {
   border-color: rgba(216, 67, 67, 1);
+}
+
+@media (min-width: 768px) {
+  .filterWrapper {
+    padding: 18px;
+  }
 }

@@ -4,7 +4,7 @@
   flex-direction: column;
   gap: 64px;
 }
-@media (min-width: 768px) {
+@media (min-width: 1440px) {
   .catalogPage {
     flex-direction: row;
   }

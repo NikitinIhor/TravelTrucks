@@ -31,7 +31,7 @@ export default function FeedbackForm() {
   const handleSubmit = (values, actions) => {
     actions.resetForm();
 
-    toast.success("Form successfully submitted!", {
+    toast.success("Form successfully sent!", {
       duration: 4000,
       position: "top-right",
     });

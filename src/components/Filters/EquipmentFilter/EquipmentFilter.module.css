@@ -4,18 +4,33 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  font-size: 12px;
 }
 .content p {
   font-weight: 500;
   color: rgba(16, 24, 40, 1);
 }
 .list {
-  width: 360px;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
-  flex-wrap: wrap;
 }
 .icon {
+  width: 20px;
+  height: 20px;
   margin-bottom: 8px;
+}
+
+@media (min-width: 768px) {
+  .list {
+    width: 320px;
+  }
+  .content {
+    font-size: 16px;
+  }
+  .icon {
+    width: 32px;
+    height: 32px;
+  }
 }
