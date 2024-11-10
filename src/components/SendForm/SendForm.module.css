@@ -1,16 +1,44 @@
 .sendForm {
-  width: 640px;
+  width: 100%;
   border-radius: 10px;
   border: 1px solid rgba(218, 221, 225, 1);
-  padding: 44px 57px;
+  padding: 20px;
 }
 .title {
   font-weight: 600;
-  font-size: 20px;
+  font-size: 16px;
   color: rgba(16, 24, 40, 1);
   margin-bottom: 8px;
 }
 .text {
   color: rgba(108, 113, 123, 1);
-  margin-bottom: 24px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  .sendForm {
+    padding: 32px;
+  }
+  .title {
+    font-size: 18px;
+  }
+  .text {
+    margin-bottom: 20px;
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .sendForm {
+    width: 640px;
+    padding: 44px 57px;
+  }
+  .title {
+    font-size: 20px;
+  }
+  .text {
+    margin-bottom: 24px;
+    font-size: 16px;
+  }
 }
