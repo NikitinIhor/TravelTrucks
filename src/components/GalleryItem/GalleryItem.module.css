@@ -1,4 +1,4 @@
-.item {
+/* .item {
   border: 1px solid rgba(218, 221, 225, 1);
   border-radius: 20px;
 }
@@ -44,7 +44,6 @@
 .isChecked {
   stroke: rgba(228, 72, 72, 1);
 }
-/* ------------------------------------------ */
 
 .reviews {
   display: flex;
@@ -93,4 +92,159 @@
 .optiion_text {
   font-weight: 500;
   color: rgba(16, 24, 40, 1);
+} */
+
+/* Mobile-first (320px and up) */
+.item {
+  border: 1px solid rgba(218, 221, 225, 1);
+  border-radius: 20px;
+}
+
+.content {
+  width: 100%; /* Use relative width for smaller screens */
+}
+
+.wrapper {
+  padding: 16px; /* Smaller padding for mobile */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.header {
+  margin-bottom: 8px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title,
+.p {
+  font-weight: 600;
+  font-size: 18px; /* Smaller font for mobile */
+  color: rgba(16, 24, 40, 1);
+}
+
+.price {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.image {
+  width: 100%; /* Responsive width */
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.icon_heart {
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.icon_heart:hover {
+  transform: scale(1.1);
+}
+
+.isChecked {
+  stroke: rgba(228, 72, 72, 1);
+}
+
+.reviews {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.icon_star {
+  margin-right: 4px;
+  fill: rgba(255, 197, 49, 1);
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.averageRating,
+.reviewsTotal {
+  color: rgba(16, 24, 40, 1);
+}
+
+.description {
+  color: rgba(71, 84, 103, 1);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 16px;
+}
+
+.options {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.option {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  background-color: rgba(242, 244, 247, 1);
+  border-radius: 100px;
+}
+
+.optiion_text {
+  font-weight: 500;
+  color: rgba(16, 24, 40, 1);
+}
+
+/* Tablet (768px and up) */
+@media (min-width: 768px) {
+  .content {
+    width: 400px;
+  }
+
+  .wrapper {
+    padding: 24px;
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .title,
+  .p {
+    font-size: 20px;
+  }
+
+  .price {
+    gap: 13px;
+  }
+
+  .options {
+    width: 360px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Desktop (1440px and up) */
+@media (min-width: 1440px) {
+  .content {
+    width: 524px;
+  }
+
+  .title,
+  .p {
+    font-size: 24px; /* Max font size for desktop */
+  }
+
+  .options {
+    width: 400px;
+    margin-bottom: 24px;
+  }
 }

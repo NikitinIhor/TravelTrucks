@@ -1,10 +1,10 @@
-.location {
+/* .location {
   color: rgba(108, 113, 123, 1);
 }
 
 .location input {
   height: 56px;
-  width: 100%;
+  width: 360px;
   padding-left: 48px;
   background-color: rgba(247, 247, 247, 1);
   border: none;
@@ -56,10 +56,92 @@ h3 {
 }
 .type {
   margin-bottom: 40px;
+} */
+
+/* Mobile-first (320px and up) */
+.location {
+  color: rgba(108, 113, 123, 1);
 }
 
+.location input {
+  height: 56px;
+  width: 100%; /* Use relative width for smaller screens */
+  padding-left: 48px;
+  background-color: rgba(247, 247, 247, 1);
+  border: none;
+  border-radius: 12px;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  position: relative;
+  margin-bottom: 40px;
+  color: rgba(16, 24, 40, 1);
+}
+
+.input input:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(211, 26, 26, 0.5);
+}
+
+.input:focus-within .icon_location {
+  stroke: rgba(16, 24, 40, 1);
+}
+
+.icon_location {
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  stroke: rgba(108, 113, 123, 1);
+}
+
+h3 {
+  margin-bottom: 32px;
+  font-weight: 500;
+  color: rgba(71, 84, 103, 1);
+}
+
+.title {
+  margin-bottom: 48px;
+  position: relative;
+  font-weight: 600;
+  font-size: 20px;
+  color: rgba(16, 24, 40, 1);
+}
+
+.title::before {
+  position: absolute;
+  content: "";
+  bottom: -24px;
+  left: 0;
+  width: 100%;
+  border: 1px solid rgba(218, 221, 225, 1);
+}
+
+.equipment {
+  margin-bottom: 32px;
+}
+
+.type {
+  margin-bottom: 40px;
+}
+
+/* Tablet (768px and up) */
 @media (min-width: 768px) {
   .location input {
-    width: 360px;
+    width: 360px; /* Set specific width for tablet and above */
+  }
+
+  .title {
+    font-size: 24px; /* Adjust font size for tablet */
+  }
+}
+
+/* Desktop (1440px and up) */
+@media (min-width: 1440px) {
+  .title {
+    font-size: 28px; /* Max font size for desktop */
   }
 }
