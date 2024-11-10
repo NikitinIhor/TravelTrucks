@@ -36,6 +36,10 @@
 }
 .icon_heart {
   cursor: pointer;
+  transition: all 0.4s ease;
+}
+.icon_heart:hover {
+  transform: scale(1.1);
 }
 .isChecked {
   stroke: rgba(228, 72, 72, 1);

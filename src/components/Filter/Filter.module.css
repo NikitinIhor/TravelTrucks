@@ -4,7 +4,7 @@
 
 .location input {
   height: 56px;
-  width: 360px;
+  width: 100%;
   padding-left: 48px;
   background-color: rgba(247, 247, 247, 1);
   border: none;
@@ -56,4 +56,10 @@ h3 {
 }
 .type {
   margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .location input {
+    width: 360px;
+  }
 }

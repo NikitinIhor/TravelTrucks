@@ -1,4 +1,6 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import Button from "../Button/Button";
 import css from "./FeedbackForm.module.css";
@@ -24,8 +26,18 @@ const FeedbackSchema = Yup.object().shape({
 });
 
 export default function FeedbackForm() {
+  const navigate = useNavigate();
+
   const handleSubmit = (values, actions) => {
     actions.resetForm();
+
+    toast.success("Form successfully submitted!", {
+      duration: 4000,
+      position: "top-right",
+    });
+    setTimeout(() => {
+      navigate("/");
+    }, 1000);
   };
 
   return (
@@ -44,7 +56,6 @@ export default function FeedbackForm() {
           />
           <ErrorMessage className={css.error} name="name" component="span" />
         </div>
-
         <div className={css.container}>
           <Field
             className={css.field}
@@ -54,7 +65,6 @@ export default function FeedbackForm() {
           />
           <ErrorMessage className={css.error} name="email" component="span" />
         </div>
-
         <div className={css.container}>
           <Field
             className={css.field}
@@ -64,7 +74,6 @@ export default function FeedbackForm() {
           />
           <ErrorMessage className={css.error} name="date" component="span" />
         </div>
-
         <div className={css.container}>
           <Field
             className={`${css.field} ${css.comment}`}
@@ -74,7 +83,6 @@ export default function FeedbackForm() {
           />
           <ErrorMessage className={css.error} name="comment" component="span" />
         </div>
-
         <Button>Send</Button>
       </Form>
     </Formik>

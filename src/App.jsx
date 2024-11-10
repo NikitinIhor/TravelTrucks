@@ -1,4 +1,5 @@
 import { lazy, Suspense } from "react";
+import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Loader from "./components/Loader/Loader";
@@ -13,6 +14,7 @@ const Reviews = lazy(() => import("./components/Reviews/Reviews"));
 export default function App() {
   return (
     <>
+      <Toaster />
       <Suspense fallback={<Loader />}>
         <Header />
         <Routes>

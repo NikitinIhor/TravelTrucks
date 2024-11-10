@@ -7,6 +7,7 @@ import {
   selectLoading,
   selectTotalItems,
 } from "../../redux/gallerySlice";
+
 import Error from "../Error/Error";
 import GalleryItem from "../GalleryItem/GalleryItem";
 import Loader from "../Loader/Loader";
@@ -49,8 +50,8 @@ export default function Gallery() {
   return (
     <div className={css.gallery}>
       <ul className={css.list}>
-        {campers.map((camper) => (
-          <GalleryItem key={camper.id} data={camper} />
+        {campers.map((camper, index) => (
+          <GalleryItem key={`${camper.id}-${index}`} data={camper} />
         ))}
       </ul>
       {totalCampers && (

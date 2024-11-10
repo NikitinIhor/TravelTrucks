@@ -1,5 +1,11 @@
 .catalogPage {
   padding-top: 48px;
   display: flex;
+  flex-direction: column;
   gap: 64px;
+}
+@media (min-width: 768px) {
+  .catalogPage {
+    flex-direction: row;
+  }
 }

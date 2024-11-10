@@ -1,29 +1,50 @@
 .header {
   background-color: rgba(247, 247, 247, 1);
 }
+
 .nav {
   display: flex;
   align-items: center;
-  height: 72px;
+  height: 60px;
 }
+
 .logo {
-  margin-right: 450px;
+  margin-right: 20px;
   transition: all 0.4s ease;
   padding: 5px;
 }
+
 .logo:hover {
   transform: scale(1.05);
 }
+
 .list {
   display: flex;
   justify-content: center;
-  gap: 32px;
+  gap: 15px;
 }
+
 .item {
   font-weight: 500;
   color: rgba(16, 24, 40, 1);
   transition: all 0.4s ease;
 }
+
 .isActive {
   color: rgba(216, 67, 67, 1);
+}
+
+@media (min-width: 768px) {
+  .logo {
+    margin-right: 450px;
+  }
+  .list {
+    gap: 32px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .nav {
+    height: 72px;
+  }
 }

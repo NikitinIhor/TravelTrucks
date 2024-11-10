@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import sprite from "../../images/sprite.svg";
 import Button from "../Button/Button";
@@ -6,6 +7,12 @@ import css from "./GalleryItem.module.css";
 export default function GalleryItem({
   data: { id, name, gallery, price, reviews, location, description },
 }) {
+  const [cheched, setCheched] = useState(false);
+
+  const handleClick = () => {
+    setCheched((prev) => !prev);
+  };
+
   const originalImage = gallery[0].original;
   const reviewsTotal = reviews.length;
   const averageRating =
@@ -30,7 +37,12 @@ export default function GalleryItem({
             <h2 className={css.title}>{name}</h2>
             <div className={css.price}>
               <p className={css.p}>€{price}.00</p>
-              <svg className={css.icon_heart} width={24} height={24}>
+              <svg
+                onClick={handleClick}
+                className={`${css.icon_heart} ${cheched ? css.isChecked : ""}`}
+                width={24}
+                height={24}
+              >
                 <use href={`${sprite}#icon-heart`}></use>
               </svg>
             </div>
